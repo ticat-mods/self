@@ -1,0 +1,2 @@
+help = disable color and utf8 display, it's good for logging
+flow = display.color.off : display.utf8.off
