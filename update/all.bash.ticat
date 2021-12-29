@@ -1,2 +1,6 @@
 help = update bin and all repos
 flow = hub.update tip=no
+
+[dep]
+git = to fetch ticat source code
+go = to build ticat binary
