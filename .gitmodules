@@ -1,0 +1,3 @@
+[submodule "helper/ticat.helper.bash"]
+	path = helper/ticat.helper.bash
+	url = https://github.com/innerr/ticat.helper.bash

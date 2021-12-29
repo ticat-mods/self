@@ -1,0 +1,2 @@
+help = update bin and all repos
+flow = hub.update tip=no

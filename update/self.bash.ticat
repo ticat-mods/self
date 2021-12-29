@@ -1,0 +1,3 @@
+help = update self and basic repos
+abbr = ticat
+flow = hub.init tip=no
