@@ -1,0 +1,7 @@
+help = use vim to edit command meta file
+
+nolog = true
+quiet-error = true
+
+[arg]
+cmd = ''

@@ -1,0 +1,7 @@
+help = use vim to edit command script, edit meta instead if no script file
+
+nolog = true
+quiet-error = true
+
+[arg]
+cmd = ''
