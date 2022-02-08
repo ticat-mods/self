@@ -5,3 +5,4 @@ quiet-error = true
 
 [arg]
 cmd = ''
+edit-meta = false
