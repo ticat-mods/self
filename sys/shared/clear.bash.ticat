@@ -1,0 +1,2 @@
+help = clear all data in ticat system shared path (defined by env key: sys.paths.data.shared)
+abbr = clean|burn|rm|destroy
