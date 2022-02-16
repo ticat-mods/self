@@ -29,8 +29,8 @@ function vim_path_from_api_get()
 		echo "${path}" >&2
 		exit 1
 	fi
-	echo "[:)] editing ${path}"
+	echo "[:)] ${path} editing"
 	vim "${path}"
-	echo "[:)] edited ${path}"
+	echo "[:)] ${path} edited"
 	exit
 }
