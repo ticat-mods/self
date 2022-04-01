@@ -1,1 +1,4 @@
 help = use vim to edit local persisted env file
+
+no-log = true
+quiet-error = true
