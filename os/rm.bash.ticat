@@ -1,0 +1,6 @@
+help = remove file or dir
+
+[arg]
+target|t = ''
+force|f = true
+recursive|r = true
