@@ -1,3 +1,6 @@
 [submodule "helper/ticat.helper.bash"]
 	path = helper/ticat.helper.bash
 	url = https://github.com/innerr/ticat.helper.bash
+[submodule "helper/bash.helper"]
+	path = helper/bash.helper
+	url = https://github.com/ticat-mods/bash.helper
