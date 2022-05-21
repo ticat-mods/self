@@ -3,7 +3,7 @@ set -euo pipefail
 
 env=`cat "${1}/env"`
 
-update_self "${env}"
-
+echo
+update_self "${env}" 'NYrOv0JuQ8iZ6cEnOTzdaTfh7ovx2Q2iwEQX'
 echo
 echo "self update done"

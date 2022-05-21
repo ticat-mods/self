@@ -1,7 +1,4 @@
 help = update self and basic repos
-abbr = ticat
-flow = hub.init tip=no
+abbr = self
 
-[dep]
-git = to fetch ticat source code
-go = to build ticat binary
+flow = hub.init tip=no
