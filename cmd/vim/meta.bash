@@ -11,5 +11,10 @@ if [ -z "${cmd}" ]; then
 	exit 1
 fi
 
-vim_path_from_api_get 'api.cmd.meta' "${cmd}" 'false'
-vim_path_from_api_get 'api.cmd.path' "${cmd}" 'true'
+editor="${2}"
+if [ -z "${editor}" ]; then
+	editor='vim'
+fi
+
+vim_path_from_api_get 'api.cmd.meta' "${cmd}" 'false' "${editor}"
+vim_path_from_api_get 'api.cmd.path' "${cmd}" 'true' "${editor}"

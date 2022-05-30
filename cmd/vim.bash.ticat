@@ -4,5 +4,6 @@ nolog = true
 quiet-error = true
 
 [arg]
-cmd = ''
-edit-meta = false
+cmd|c = ''
+edit-meta|m = false
+editor|e = vim

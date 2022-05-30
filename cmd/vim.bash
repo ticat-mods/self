@@ -21,9 +21,14 @@ if [ ! -z "${2+x}" ]; then
 	fi
 fi
 
+editor='vim'
+if [ ! -z "${3+x}" ]; then
+	editor="${3}"
+fi
+
 if [ "${meta}" == 'true' ]; then
-	vim_path_from_api_get 'api.cmd.meta' "${cmd}" 'true'
+	vim_path_from_api_get 'api.cmd.meta' "${cmd}" 'true' "${editor}"
 else
-	vim_path_from_api_get 'api.cmd.path' "${cmd}" 'false'
-	vim_path_from_api_get 'api.cmd.meta' "${cmd}" 'true'
+	vim_path_from_api_get 'api.cmd.path' "${cmd}" 'false' "${editor}"
+	vim_path_from_api_get 'api.cmd.meta' "${cmd}" 'true' "${editor}"
 fi

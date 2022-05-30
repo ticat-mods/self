@@ -3,6 +3,7 @@ function vim_path_from_api_get()
 	local key="${1}"
 	local cmd="${2}"
 	local err_when_not_found=`to_true "${3}"`
+	local editor="${4}"
 
 	local self=`must_env_val "${env}" 'sys.paths.ticat'`
 
@@ -30,7 +31,7 @@ function vim_path_from_api_get()
 		exit 1
 	fi
 	echo "[:)] ${path} editing"
-	vim "${path}"
+	"${editor}" "${path}"
 	echo "[:)] ${path} edited"
 	exit
 }
