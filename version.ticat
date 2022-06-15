@@ -1,0 +1,3 @@
+help = show ticat version
+abbr = ver
+flow = display.quiet : echo "[[sys.version]] [[sys.dev.name]]"
