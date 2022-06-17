@@ -1,0 +1,9 @@
+help = repeatly update and display status of a session
+abbr = w
+
+interact = true
+quiet-error = true
+
+[arg]
+session-id|session|id|s = ''
+interval-secs|interval|i = 10

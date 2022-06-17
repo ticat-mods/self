@@ -1,0 +1,8 @@
+help = repeatly update and display the last running session
+abbr = w
+
+quiet-error = true
+interact = true
+
+[arg]
+interval-secs|interval|i = 10
