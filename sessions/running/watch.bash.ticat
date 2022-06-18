@@ -5,4 +5,4 @@ quiet-error = true
 interact = true
 
 [arg]
-interval-secs|interval|i = 10
+interval-secs|interval|i = 20

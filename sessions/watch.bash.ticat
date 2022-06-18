@@ -6,4 +6,4 @@ quiet-error = true
 
 [arg]
 session-id|session|id|s = ''
-interval-secs|interval|i = 10
+interval-secs|interval|i = 20
