@@ -16,6 +16,8 @@ ticat=`must_env_val "${env}" 'sys.paths.ticat'`
 
 for ((i=0; i<9999999; i++)); do
 	clear
+	set +e
 	"${ticat}" sessions.desc.monitor "${session}"
+	set -e
 	sleep "${interval}"
 done
