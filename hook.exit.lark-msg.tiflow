@@ -1,3 +1,5 @@
+### file: hook.exit.lark-msg.tiflow
+###
 help = when session finish, send info as message to lark bot url
 abbr = hook.exit.lark
 trivial = 9
@@ -6,13 +8,20 @@ quiet = true
 flow = hook.error session.desc.mon.lark : hook.done session.desc.lark
 
 [arg]
-lark-notify-url|notify-url|url = ''
-
+	lark-notify-url|notify-url|url = ''
 [arg2env]
-lark.secret.notify-url = lark-notify-url
-
+	lark.secret.notify-url = lark-notify-url
 [env]
-lark.secret.notify-url = read
-
+	lark.secret.notify-url = read
 [dep]
-curl = to send message to lark bot url
+	curl = to send message to lark bot url
+
+### file: hook.exit.lark-msg.config.tiflow
+###
+help = config lark bot url to env, but not enable event hooks
+abbr = hook.exit.lark.conf
+
+[arg]
+	lark-notify-url|notify-url|url = ''
+[arg2env]
+	lark.secret.notify-url = lark-notify-url
