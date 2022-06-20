@@ -5,6 +5,12 @@ quiet = true
 
 flow = hook.error session.desc.mon.lark : hook.done session.desc.lark
 
+[arg]
+lark-notify-url|notify-url|url = ''
+
+[arg2env]
+lark.secret.notify-url = lark-notify-url
+
 [env]
 lark.secret.notify-url = read
 
