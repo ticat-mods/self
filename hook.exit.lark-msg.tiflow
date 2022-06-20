@@ -1,0 +1,12 @@
+help = when session finish, send info as message to lark bot url
+abbr = hook.exit.lark
+trivial = 9
+quiet = true
+
+flow = hook.error session.desc.mon.lark : hook.done session.desc.lark
+
+[env]
+lark.secret.notify-url = read
+
+[dep]
+curl = to send message to lark bot url

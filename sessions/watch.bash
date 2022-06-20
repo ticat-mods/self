@@ -7,7 +7,7 @@ shift
 session="${1}"
 if [ -z "${session}" ]; then
 	echo "[:(] arg 'session-id' is empty" >&2
-	return 1
+	exit 1
 fi
 
 interval="${2}"

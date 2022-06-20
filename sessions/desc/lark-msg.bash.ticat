@@ -1,0 +1,8 @@
+help = send current session's desc info as message to lark bot url
+abbr = lark
+
+[env]
+lark.secret.notify-url = read
+
+[dep]
+curl = to send message to lark bot url
