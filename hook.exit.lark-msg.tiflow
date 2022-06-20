@@ -5,7 +5,7 @@ abbr = hook.exit.lark
 trivial = 9
 quiet = true
 
-flow = hook.error session.desc.mon.lark : hook.done session.desc.lark
+flow = hook.exit session.desc.lark
 
 [arg]
 	lark-notify-url|notify-url|url = ''

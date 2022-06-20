@@ -1,5 +1,6 @@
 help = send current session's monitor info as message to lark bot url
 abbr = lark
+no-log = true
 
 [env]
 lark.secret.notify-url = read
