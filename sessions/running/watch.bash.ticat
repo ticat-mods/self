@@ -3,6 +3,7 @@ abbr = w
 
 quiet-error = true
 interact = true
+hide-in-last = true
 
 [arg]
 interval-secs|interval|i = 20
