@@ -3,7 +3,6 @@
 help = when session finish, send info as message to lark bot url
 abbr = hook.exit.lark
 trivial = 9
-quiet = true
 
 flow = hook.exit session.desc.lark
 
