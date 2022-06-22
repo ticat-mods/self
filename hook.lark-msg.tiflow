@@ -1,7 +1,7 @@
-### file: hook.exit.lark-msg.tiflow
+### file: hook.lark-msg.tiflow
 ###
 help = when session finish, send info as message to lark bot url
-abbr = hook.exit.lark
+abbr = hook.lark
 trivial = 9
 
 flow = hook.exit session.desc.lark
