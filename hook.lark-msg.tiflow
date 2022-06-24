@@ -15,10 +15,10 @@ flow = hook.exit session.desc.lark
 [dep]
 	curl = to send message to lark bot url
 
-### file: hook.exit.lark-msg.config.tiflow
+### file: hook.lark-msg.config.tiflow
 ###
 help = config lark bot url to env, but not enable event hooks
-abbr = hook.exit.lark.conf
+abbr = hook.lark.conf
 
 [arg]
 	lark-notify-url|notify-url|url = ''
