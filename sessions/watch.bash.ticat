@@ -3,6 +3,7 @@ abbr = w
 
 interact = true
 quiet-error = true
+hide-in-last = true
 
 [arg]
 session-id|session|id|s = ''
