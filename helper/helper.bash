@@ -1,6 +1,7 @@
 . "`cd $(dirname ${BASH_SOURCE[0]}) && pwd`/bash.helper/ticat.bash"
 . "`cd $(dirname ${BASH_SOURCE[0]}) && pwd`/bash.helper/git.bash"
 . "`cd $(dirname ${BASH_SOURCE[0]}) && pwd`/bash.helper/string.bash"
+. "`cd $(dirname ${BASH_SOURCE[0]}) && pwd`/bash.helper/path.bash"
 
 function update_self()
 {

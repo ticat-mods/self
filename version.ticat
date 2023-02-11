@@ -1,3 +1,4 @@
 help = show ticat version
 abbr = ver
-flow = display.quiet : echo "[[sys.version]] [[sys.dev.name]]"
+pack-subflow = true
+flow = echo "[[sys.version]] [[sys.dev.name]]"
