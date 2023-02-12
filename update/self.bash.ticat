@@ -1,4 +1,4 @@
 help = update self and basic repos
 abbr = self
 
-flow = hub.init tip=no
+flow = disp.quiet : hub.init tip=no : echo : echo "** self repos updated **"
