@@ -16,16 +16,19 @@ cp -f "${here}/templates/bash/helper.bash" "${repo_root}/helper/"
 
 ## Make sure the old script/meta file not exists
 cmd_path="${repo_root}/${cmd_name_path}"
-check_cmd_files_exist_and_ensure_dir "${cmd_path}" '.bash'
+check_cmd_files_not_exist_and_ensure_dir "${cmd_path}" '.bash'
 cmd_dir=`dirname "${cmd_path}"`
 
 ## Create the script file
 rel_path=`rel_path_to_repo_root "${cmd_dir}" "${repo_root}"`
+echo '## Exit when meet error' >> "${cmd_path}.bash"
 echo 'set -euo pipefail' >> "${cmd_path}.bash"
+echo >> "${cmd_path}.bash"
+echo '## Import bash helper functions for ticat' >> "${cmd_path}.bash"
 echo '. "`cd $(dirname ${BASH_SOURCE[0]}) && pwd`/'${rel_path}'/helper/helper.bash"' >> "${cmd_path}.bash"
 cat "${here}/templates/bash/simple.bash" >> "${cmd_path}.bash"
-echo "[:)] '${cmd_path}.bash' (cmd script file) created"
+echo "[:)] '${cmd_path}.bash' (cmd script) created"
 
 ## Create the meta file
-cp -f "${here}/templates/meta.simple" "${cmd_path}.bash.ticat"
-echo "[:)] '${cmd_path}.bash.ticat' (cmd meta file) created"
+cp -f "${here}/templates/simple.meta" "${cmd_path}.bash.ticat"
+echo "[:)] '${cmd_path}.bash.ticat' (cmd meta) created"

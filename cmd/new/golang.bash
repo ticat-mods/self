@@ -13,14 +13,14 @@ ensure_dir_in_hub "${env}" "${repo_root}"
 
 ## Make sure the old script/meta file not exists
 cmd_path="${repo_root}/${cmd_name_path}"
-check_cmd_files_exist_and_ensure_dir "${cmd_path}" '.go'
+check_cmd_files_not_exist_and_ensure_dir "${cmd_path}" '.go'
 cmd_dir=`dirname "${cmd_path}"`
 
 ## Create the script file
 rel_path=`rel_path_to_repo_root "${cmd_dir}" "${repo_root}"`
 cat "${here}/templates/golang/simple.go" >> "${cmd_path}.go"
-echo "[:)] '${cmd_path}.go' (cmd code file) created"
+echo "[:)] '${cmd_path}.go' (cmd code) created"
 
 ## Create the meta file
-cp -f "${here}/templates/meta.simple" "${cmd_path}.go.ticat"
-echo "[:)] '${cmd_path}.go.ticat' (cmd meta file) created"
+cp -f "${here}/templates/golang/simple.go.meta" "${cmd_path}.go.ticat"
+echo "[:)] '${cmd_path}.go.ticat' (cmd meta) created"

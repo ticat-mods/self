@@ -122,12 +122,12 @@ function git_pull_dev_helper_lib()
 	echo >&2
 }
 
-function check_cmd_files_exist_and_ensure_dir()
+function check_cmd_files_not_exist_and_ensure_dir()
 {
 	local cmd_path="${1}"
 	local ext="${2}"
 	if [ -e "${cmd_path}${ext}" ]; then
-		echo "[:(] cmd script file '${cmd_path}${ext}' exists, exited" >&2
+		echo "[:(] cmd script file/dir '${cmd_path}${ext}' exists, exited" >&2
 		return 1
 	fi
 	if [ -e "${cmd_path}${ext}.ticat" ]; then

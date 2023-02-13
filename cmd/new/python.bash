@@ -15,7 +15,7 @@ git_pull_dev_helper_lib "${repo_root}" 'python'
 
 ## Make sure the old script/meta file not exists
 cmd_path="${repo_root}/${cmd_name_path}"
-check_cmd_files_exist_and_ensure_dir "${cmd_path}" '.py'
+check_cmd_files_not_exist_and_ensure_dir "${cmd_path}" '.py'
 cmd_dir=`dirname "${cmd_path}"`
 
 ## Create the script file
@@ -25,8 +25,8 @@ echo >> "${cmd_path}.py"
 echo 'import sys' >> "${cmd_path}.py"
 echo "sys.path.append('${rel_path}/helper/python.helper')" >> "${cmd_path}.py"
 cat "${here}/templates/python/simple.py" >> "${cmd_path}.py"
-echo "[:)] '${cmd_path}.py' (cmd script file) created"
+echo "[:)] '${cmd_path}.py' (cmd script) created"
 
 ## Create the meta file
-cp -f "${here}/templates/meta.simple" "${cmd_path}.py.ticat"
-echo "[:)] '${cmd_path}.py.ticat' (cmd meta file) created"
+cp -f "${here}/templates/simple.meta" "${cmd_path}.py.ticat"
+echo "[:)] '${cmd_path}.py.ticat' (cmd meta) created"

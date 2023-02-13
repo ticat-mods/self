@@ -11,7 +11,7 @@ curr_dir=`get_pwd "${env}"`
 repo_root=`get_repo_root_by_pwd "${curr_dir}"`
 
 cmd_path="${repo_root}/${cmd_name_path}"
-check_cmd_files_exist_and_ensure_dir "${cmd_path}" ''
+check_cmd_files_not_exist_and_ensure_dir "${cmd_path}" ''
 
 if [ ! -z "${help_str}" ]; then
 	echo "help = ${helpstr}" >> "${cmd_path}.ticat"
