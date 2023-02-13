@@ -1,0 +1,7 @@
+help = save env values to a new config command in current working dir
+abbr = env-conf|env|e
+quiet-err = true
+
+[arg]
+cmd-name|cmd|name|c = ''
+help-str|help|h = ''

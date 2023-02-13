@@ -107,12 +107,12 @@ function check_cmd_files_exist_and_ensure_dir()
 {
 	local cmd_path="${1}"
 	local ext="${2}"
-	if [ -e "${cmd_path}.${ext}" ]; then
-		echo "[:(] cmd script file '${cmd_path}.${ext}' exists, exited" >&2
+	if [ -e "${cmd_path}${ext}" ]; then
+		echo "[:(] cmd script file '${cmd_path}${ext}' exists, exited" >&2
 		return 1
 	fi
-	if [ -e "${cmd_path}.${ext}.ticat" ]; then
-		echo "[:(] cmd meta file '${cmd_path}.${ext}.ticat' exists, exited" >&2
+	if [ -e "${cmd_path}${ext}.ticat" ]; then
+		echo "[:(] cmd meta file '${cmd_path}${ext}.ticat' exists, exited" >&2
 		return 1
 	fi
 
