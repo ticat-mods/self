@@ -75,12 +75,32 @@ function get_repo_root_by_pwd()
 		repo_root="${curr_dir}"
 		echo "[:-] prepare to do 'git init' for current dir" >&2
 		echo "     if you don't like it, remove dir '${repo_root}/.git'" >&2
-		cd "${repo_root}"
-		echo '     ---' >&2
-		git init 2>&1 | awk '{print "     [git] "$0}' >&2
+		(
+			cd "${repo_root}"
+			echo '     ---' >&2
+			git init 2>&1 | awk '{print "     [git] "$0}' >&2
+		)
 		echo >&2
 	fi
 	abs_path "${repo_root}"
+}
+
+function git_pull_dev_helper_lib()
+{
+	local repo_root="${1}"
+	local type="${2}"
+	if [ -d "${repo_root}/helper/${type}.helper" ]; then
+		return 0
+	fi
+	(
+		cd "${repo_root}"
+		mkdir -p "helper"
+		echo "[:-] prepare to do 'git submodule add ...' to download ${type} helper libs" >&2
+		echo '     ---' >&2
+		git submodule add "https://github.com/ticat-mods/${type}.helper" "helper/${type}.helper" 2>&1 |\
+			awk '{print "     [git] "$0}' >&2
+	)
+	echo >&2
 }
 
 function check_cmd_files_exist_and_ensure_dir()

@@ -9,18 +9,9 @@ cmd_name_path=`get_cmd_path_from_name "${1}"`
 curr_dir=`get_pwd "${env}"`
 
 repo_root=`get_repo_root_by_pwd "${curr_dir}"`
-cd "${repo_root}"
 
-## Make sure bash helper lib is downloaded
-if [ ! -e "${repo_root}/helper/bash.helper" ]; then
-	mkdir -p "helper"
-	echo "[:-] prepare to do 'git submodule add ...' to download bash helper libs"
-	echo '     ---'
-	git submodule add https://github.com/ticat-mods/bash.helper 'helper/bash.helper' 2>&1 |\
-		awk '{print "     [git] "$0}'
-	cp -f "${here}/templates/bash/helper.bash" 'helper/'
-	echo
-fi
+git_pull_dev_helper_lib "${repo_root}" 'bash'
+cp -f "${here}/templates/bash/helper.bash" "${repo_root}/helper/"
 
 ## Make sure the old script/meta file not exists
 cmd_path="${repo_root}/${cmd_name_path}"
