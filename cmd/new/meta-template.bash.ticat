@@ -1,4 +1,4 @@
-help = print meta template (full features)
+help = print meta template (full feature)
 abbr = meta|template|tmpl|t
 quiet-err = true
 no-log = true
