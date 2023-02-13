@@ -18,6 +18,8 @@ if [ ! -z "${help_str}" ]; then
 	echo >> "${cmd_path}.ticat"
 fi
 
+echo 'tag = config' >> "${cmd_path}.ticat"
+echo >> "${cmd_path}.ticat"
 echo '[val2env]' >> "${cmd_path}.ticat"
 echo "${env}" | \
 	{ grep -v '^strs.' || test $? = 1; } | \

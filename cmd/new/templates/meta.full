@@ -35,7 +35,7 @@ end-ts-key|end-key = key2
 
 ##--------------------------------------------------------------
 
-[[macro1]] = noop : noop
+[[macro1]] = noop : echo [[RANDOM]] : noop
 
 ## Could only have one: `flow = ...` or `[flow/]`
 # flow = noop : noop : [[arg2]] : [[key5]].name-x : [[macro1]]

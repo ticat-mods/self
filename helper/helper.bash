@@ -72,7 +72,7 @@ function get_repo_root_by_pwd()
 
 	local repo_root=`find_repo_root_dir "${curr_dir}"`
 	if [ -z "${repo_root}" ]; then
-		repo_root="${curr_dir}"
+		local repo_root="${curr_dir}"
 		echo "[:-] prepare to do 'git init' for current dir" >&2
 		echo "     if you don't like it, remove dir '${repo_root}/.git'" >&2
 		(
@@ -83,6 +83,25 @@ function get_repo_root_by_pwd()
 		echo >&2
 	fi
 	abs_path "${repo_root}"
+}
+
+function ensure_dir_in_hub()
+{
+	local env="${1}"
+	local dir="${2}"
+	local ticat=`must_env_val "${env}" 'sys.paths.ticat'`
+	(
+		cd "${dir}"
+		set +e
+		"${ticat}" 'hub.add.pwd' 2>&1 1>/dev/null
+		local rt="${?}"
+		set -e
+		if [ "${rt}" != '0' ]; then
+			echo "[:(] failed to make sure '${dir}' in ticat hub" >&2
+			"${ticat}" 'hub.add.pwd' | awk '{print "     "$0}' >&2
+			return 1
+		fi
+	)
 }
 
 function git_pull_dev_helper_lib()

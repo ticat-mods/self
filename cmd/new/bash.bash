@@ -9,13 +9,14 @@ cmd_name_path=`get_cmd_path_from_name "${1}"`
 curr_dir=`get_pwd "${env}"`
 
 repo_root=`get_repo_root_by_pwd "${curr_dir}"`
+ensure_dir_in_hub "${env}" "${repo_root}"
 
 git_pull_dev_helper_lib "${repo_root}" 'bash'
 cp -f "${here}/templates/bash/helper.bash" "${repo_root}/helper/"
 
 ## Make sure the old script/meta file not exists
 cmd_path="${repo_root}/${cmd_name_path}"
-check_cmd_files_exist_and_ensure_dir "${cmd_path}" 'bash'
+check_cmd_files_exist_and_ensure_dir "${cmd_path}" '.bash'
 cmd_dir=`dirname "${cmd_path}"`
 
 ## Create the script file
@@ -26,5 +27,5 @@ cat "${here}/templates/bash/simple.bash" >> "${cmd_path}.bash"
 echo "[:)] '${cmd_path}.bash' (cmd script file) created"
 
 ## Create the meta file
-cp -f "${here}/templates/bash/simple.bash._ticat" "${cmd_path}.bash.ticat"
+cp -f "${here}/templates/meta.simple" "${cmd_path}.bash.ticat"
 echo "[:)] '${cmd_path}.bash.ticat' (cmd meta file) created"
