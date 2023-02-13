@@ -5,30 +5,10 @@ here=`cd $(dirname ${BASH_SOURCE[0]}) && pwd`
 env=`cat "${1}/env"`
 shift
 
-## Get cmd name
-name="${1}"
-if [ -z "${name}" ]; then
-	echo '[:(] arg "cmd-name" is empty' >&2
-	exit 1
-fi
-name=`echo "${name}" | tr '.' '/'`
+cmd_name_path=`get_cmd_path_from_name "${1}"`
+curr_dir=`get_pwd "${env}"`
 
-## Get pwd
-curr_dir=`get_path_under_pwd "${env}" 'dummy'`
-curr_dir=`dirname "${curr_dir}"`
-
-## Get repo root, make sure it's a repo dir
-repo_root=`find_repo_root_dir "${curr_dir}"`
-if [ -z "${repo_root}" ]; then
-	repo_root="${curr_dir}"
-	echo "[:-] prepare to do 'git init' for current dir"
-	echo "     if you don't like it, remove dir '${repo_root}/.git'"
-	cd "${repo_root}"
-	echo '     ---'
-	git init 2>&1 | awk '{print "     [git] "$0}'
-	echo
-fi
-repo_root=`abs_path "${repo_root}"`
+repo_root=`get_repo_root_by_pwd "${curr_dir}"`
 cd "${repo_root}"
 
 ## Make sure bash helper lib is downloaded
@@ -43,19 +23,9 @@ if [ ! -e "${repo_root}/helper/bash.helper" ]; then
 fi
 
 ## Make sure the old script/meta file not exists
-cmd_path="${repo_root}/${name}"
-if [ -e "${cmd_path}.bash" ]; then
-	echo "[:(] cmd script file '${cmd_path}.bash' exists, exited" >&2
-	exit 1
-fi
-if [ -e "${cmd_path}.bash.ticat" ]; then
-	echo "[:(] cmd meta file '${cmd_path}.bash.ticat' exists, exited" >&2
-	exit 1
-fi
-
-## Create the dir
+cmd_path="${repo_root}/${cmd_name_path}"
+check_cmd_files_exist_and_ensure_dir "${cmd_path}" 'bash'
 cmd_dir=`dirname "${cmd_path}"`
-mkdir -p "${cmd_dir}"
 
 ## Create the script file
 rel_path=`rel_path_to_repo_root "${cmd_dir}" "${repo_root}"`

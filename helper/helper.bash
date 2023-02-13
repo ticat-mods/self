@@ -55,3 +55,46 @@ function update_self()
 		fi
 	fi
 }
+
+function get_cmd_path_from_name()
+{
+	local name="${1}"
+	if [ -z "${name}" ]; then
+		echo '[:(] arg "cmd-name" is empty' >&2
+		return 1
+	fi
+	echo "${name}" | tr '.' '/'
+}
+
+function get_repo_root_by_pwd()
+{
+	local curr_dir="${1}"
+
+	local repo_root=`find_repo_root_dir "${curr_dir}"`
+	if [ -z "${repo_root}" ]; then
+		repo_root="${curr_dir}"
+		echo "[:-] prepare to do 'git init' for current dir" >&2
+		echo "     if you don't like it, remove dir '${repo_root}/.git'" >&2
+		cd "${repo_root}"
+		echo '     ---' >&2
+		git init 2>&1 | awk '{print "     [git] "$0}' >&2
+		echo >&2
+	fi
+	abs_path "${repo_root}"
+}
+
+function check_cmd_files_exist_and_ensure_dir()
+{
+	local cmd_path="${1}"
+	local ext="${2}"
+	if [ -e "${cmd_path}.${ext}" ]; then
+		echo "[:(] cmd script file '${cmd_path}.${ext}' exists, exited" >&2
+		return 1
+	fi
+	if [ -e "${cmd_path}.${ext}.ticat" ]; then
+		echo "[:(] cmd meta file '${cmd_path}.${ext}.ticat' exists, exited" >&2
+		return 1
+	fi
+
+	mkdir -p `dirname "${cmd_path}"`
+}
