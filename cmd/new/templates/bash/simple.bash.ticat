@@ -1,0 +1,23 @@
+## Keep the help string short and clean
+help = this is a help string
+
+## [Optional] Define abbreviations, this command could be called by name `foo` or `bar` if the below line is uncommented
+# abbr = foo|bar
+
+## [Optional] Define args and their default value, `arg = ''` means no default value
+[arg]
+arg-1 = ''
+arg-2 = 2
+
+## [Optional] Args in this section will auto fill the values to env, then this command and downstream commands can read them
+[arg2env]
+example.key-arg-1 = arg-1
+
+## [Optional] Define the depended env values of this command, and what it could provide
+[env]
+example.key-arg-1 = read
+example.key-arg-2 = write
+
+## [Optional] Define what OS commands of this command depend, and why
+[dep]
+expr = to parse json data
