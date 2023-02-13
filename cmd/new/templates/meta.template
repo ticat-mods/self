@@ -1,0 +1,100 @@
+### file: name1.name2.name3.tiflow
+###
+
+##--------------------------------------------------------------
+
+help = help str \
+	continue for help str
+
+abbrs|abbr = name1|name2
+## For tiflow:
+# abbrs|abbr = name1|name2.name3|name4.name5
+
+trivial = 3
+
+tags|tag = tag1|tag2
+
+duration-key|dur-key = key3
+
+begin-ts-key|begin-key = key1
+end-ts-key|end-key = key2
+
+##--------------------------------------------------------------
+
+## Can be one of below
+# args.auto = *
+# args.auto = **
+# args.auto = arg1,arg2
+# args.auto = arg1,arg2,arg-x = val-x,*
+[args.auto/]
+	arg1
+	arg2
+	arg-x = val-x
+	*
+[/args.auto]
+
+##--------------------------------------------------------------
+
+[[macro1]] = noop : noop
+
+## Could only have one: `flow = ...` or `[flow/]`
+# flow = noop : noop : [[arg2]] : [[key5]].name-x : [[macro1]]
+
+##--------------------------------------------------------------
+
+no-session = true
+
+nolog|unlog|interact|interactive = true
+
+quiet-error|quiet-err|silent-error|silent-err = true
+
+no-session = true
+
+quiet = true
+
+hide-in-sessions-last|hide-in-session-last|hide-in-last = true
+
+pack-subflow|pack-sub|quiet-subflow|quiet-sub = true
+
+##--------------------------------------------------------------
+
+[args|arg]
+arg1 = val1
+	arg2 = ''
+arg3 = ""
+arg4 = "val4"
+
+##--------------------------------------------------------------
+
+[arg2env]
+key4 = arg4
+str1-[[key1]].str2 = arg2
+
+##--------------------------------------------------------------
+
+[val2env]
+key5 = val5
+key6 = 'val6'
+key7 = "val7"
+str1-[[key1]].str2 = val2
+
+##--------------------------------------------------------------
+
+[dep]
+cmd1 = to explain why
+
+##--------------------------------------------------------------
+
+[flow/]
+noop : dummy
+dummy
+noop
+
+## The value of key4 is a list like `str1,str2,str3` (or just `cmd1`)
+** cmd1 : [[*key4*]].name1 **
+
+## The value of key4 is a list like `val1,val2,val3` (or just `val1`)
+** cmd1 arg1=[[*key4*]] : cmd2 **
+
+## Can omit `[/flow]` if `[flow/]...[/flow]` is the last section
+# [/flow]

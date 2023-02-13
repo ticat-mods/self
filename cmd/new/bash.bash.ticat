@@ -1,7 +1,6 @@
 help = create a new ticat command in current working dir, and setup necessary things
 abbr = sh
 quiet-err = true
-hide-in-last = true
 
 [arg]
 cmd-name|cmd|name|c = ''

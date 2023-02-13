@@ -56,5 +56,5 @@ echo '. "`cd $(dirname ${BASH_SOURCE[0]}) && pwd`/'${rel_path}'/helper/helper.ba
 cat "${here}/templates/bash/simple.bash" >> "${cmd_path}.bash"
 echo "[:)] '${cmd_path}.bash' (cmd script file) created"
 
-cp -f "${here}/templates/bash/simple.bash.ticat" "${cmd_path}.bash.ticat"
+cp -f "${here}/templates/bash/simple.bash._ticat" "${cmd_path}.bash.ticat"
 echo "[:)] '${cmd_path}.bash.ticat' (cmd meta file) created"

@@ -1,0 +1,5 @@
+help = print meta template (full features)
+abbr = meta|template|tmpl|t
+quiet-err = true
+no-log = true
+no-session = true
