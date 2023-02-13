@@ -1,0 +1,6 @@
+help = create a new golang ticat command in current working dir, and setup necessary things
+abbr = go|g
+quiet-err = true
+
+[arg]
+cmd-name|cmd|name|c = ''

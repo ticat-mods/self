@@ -35,6 +35,9 @@ end-ts-key|end-key = key2
 
 ##--------------------------------------------------------------
 
+## For dir-cmd, if this meta file is `<dir-name>.ticat`, then `<dir-name>/script/run.sh` will be executed
+cmd = script/run.sh
+
 [[macro1]] = noop : echo [[RANDOM]] : noop
 
 ## Could only have one: `flow = ...` or `[flow/]`

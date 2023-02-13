@@ -1,4 +1,4 @@
-help = create a new ticat command in current working dir, and setup necessary things
+help = create a new python ticat command in current working dir, and setup necessary things
 abbr = py
 quiet-err = true
 
