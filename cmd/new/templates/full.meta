@@ -12,7 +12,8 @@ abbrs|abbr = name1|name2
 
 trivial = 3
 
-tags|tag = tag1|tag2
+## `selftest` and `config` are special tags
+tags|tag = tag1|tag2|selftest|config
 
 duration-key|dur-key = key3
 
