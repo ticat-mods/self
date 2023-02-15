@@ -5,6 +5,7 @@ here=`cd $(dirname ${BASH_SOURCE[0]}) && pwd`
 env=`cat "${1}/env"`
 shift
 
+template="${2}"
 cmd_name_path=`get_cmd_path_from_name "${1}"`
 curr_dir=`get_pwd "${env}"`
 
@@ -29,9 +30,9 @@ echo 'set -euo pipefail' >> "${script_path}"
 echo >> "${script_path}"
 echo '## Import bash helper functions for ticat' >> "${script_path}"
 echo '. "`cd $(dirname ${BASH_SOURCE[0]}) && pwd`/'${rel_path}'/../../helper/helper.bash"' >> "${script_path}"
-cat "${here}/templates/bash/simple.bash" >> "${script_path}"
+cat "${here}/templates/bash/${template}.bash" >> "${script_path}"
 echo "[:)] '${cmd_path}' (cmd dir and script) created"
 
 ## Create the meta file
-cp -f "${here}/templates/dir/simple.meta" "${cmd_path}.ticat"
+cp -f "${here}/templates/dir/${template}.meta" "${cmd_path}.ticat"
 echo "[:)] '${cmd_path}.ticat' (cmd meta) created"

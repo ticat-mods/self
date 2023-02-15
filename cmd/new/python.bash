@@ -5,6 +5,7 @@ here=`cd $(dirname ${BASH_SOURCE[0]}) && pwd`
 env=`cat "${1}/env"`
 shift
 
+template="${2}"
 cmd_name_path=`get_cmd_path_from_name "${1}"`
 curr_dir=`get_pwd "${env}"`
 
@@ -24,9 +25,9 @@ echo '# -*- coding: utf-8 -*-' >> "${cmd_path}.py"
 echo >> "${cmd_path}.py"
 echo 'import sys' >> "${cmd_path}.py"
 echo "sys.path.append('${rel_path}/helper/python.helper')" >> "${cmd_path}.py"
-cat "${here}/templates/python/simple.py" >> "${cmd_path}.py"
+cat "${here}/templates/python/${template}.py" >> "${cmd_path}.py"
 echo "[:)] '${cmd_path}.py' (cmd script) created"
 
 ## Create the meta file
-cp -f "${here}/templates/simple.meta" "${cmd_path}.py.ticat"
+cp -f "${here}/templates/${template}.meta" "${cmd_path}.py.ticat"
 echo "[:)] '${cmd_path}.py.ticat' (cmd meta) created"

@@ -30,7 +30,6 @@ func readEnv() (env map[string]string, path string) {
 		panic(err)
 	}
 	defer file.Close()
-
 	env = map[string]string{}
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
@@ -52,7 +51,6 @@ func writeEnv(path string, pairs map[string]string) {
 		panic(err)
 	}
 	defer file.Close()
-
 	for k, v := range pairs {
 		_, err := fmt.Fprintf(file, "%s=%s\n", k, v)
 		if err != nil {

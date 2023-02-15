@@ -1,0 +1,13 @@
+help = TODO
+
+[arg]
+arg-1 = ''
+
+[arg2env]
+example.key-arg-1 = arg-1
+
+[env]
+example.key-arg-1 = read
+
+[dep]
+go = to compile the cmd

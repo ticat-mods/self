@@ -4,3 +4,4 @@ quiet-err = true
 
 [arg]
 cmd-name|cmd|name|c = ''
+template|templ|tmpl|t = simple

@@ -5,6 +5,7 @@ here=`cd $(dirname ${BASH_SOURCE[0]}) && pwd`
 env=`cat "${1}/env"`
 shift
 
+template="${2}"
 cmd_name_path=`get_cmd_path_from_name "${1}"`
 curr_dir=`get_pwd "${env}"`
 
@@ -18,9 +19,9 @@ cmd_dir=`dirname "${cmd_path}"`
 
 ## Create the script file
 rel_path=`rel_path_to_repo_root "${cmd_dir}" "${repo_root}"`
-cat "${here}/templates/golang/simple.go" >> "${cmd_path}.go"
+cat "${here}/templates/golang/${template}.go" >> "${cmd_path}.go"
 echo "[:)] '${cmd_path}.go' (cmd code) created"
 
 ## Create the meta file
-cp -f "${here}/templates/golang/simple.go.meta" "${cmd_path}.go.ticat"
+cp -f "${here}/templates/golang/${template}.go.meta" "${cmd_path}.go.ticat"
 echo "[:)] '${cmd_path}.go.ticat' (cmd meta) created"
