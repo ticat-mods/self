@@ -25,10 +25,14 @@ rel_path=`rel_path_to_repo_root "${cmd_dir}" "${repo_root}"`
 script_path="${cmd_path}/script"
 mkdir -p "${script_path}"
 script_path="${cmd_path}/script/run.bash"
-echo '## Exit when meet error' >> "${script_path}"
+if [ "${template}" != 'min' ]; then
+	echo '## Exit when meet error' >> "${script_path}"
+fi
 echo 'set -euo pipefail' >> "${script_path}"
-echo >> "${script_path}"
-echo '## Import bash helper functions for ticat' >> "${script_path}"
+if [ "${template}" != 'min' ]; then
+	echo >> "${script_path}"
+	echo '## Import bash helper functions for ticat' >> "${script_path}"
+fi
 echo '. "`cd $(dirname ${BASH_SOURCE[0]}) && pwd`/'${rel_path}'/../../helper/helper.bash"' >> "${script_path}"
 cat "${here}/templates/bash/${template}.bash" >> "${script_path}"
 echo "[:)] '${cmd_path}' (cmd dir and script) created"

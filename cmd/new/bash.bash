@@ -22,10 +22,14 @@ cmd_dir=`dirname "${cmd_path}"`
 
 ## Create the script file
 rel_path=`rel_path_to_repo_root "${cmd_dir}" "${repo_root}"`
-echo '## Exit when meet error' >> "${cmd_path}.bash"
+if [ "${template}" != 'min' ]; then
+	echo '## Exit when meet error' >> "${cmd_path}.bash"
+fi
 echo 'set -euo pipefail' >> "${cmd_path}.bash"
-echo >> "${cmd_path}.bash"
-echo '## Import bash helper functions for ticat' >> "${cmd_path}.bash"
+if [ "${template}" != 'min' ]; then
+	echo >> "${cmd_path}.bash"
+	echo '## Import bash helper functions for ticat' >> "${cmd_path}.bash"
+fi
 echo '. "`cd $(dirname ${BASH_SOURCE[0]}) && pwd`/'${rel_path}'/helper/helper.bash"' >> "${cmd_path}.bash"
 cat "${here}/templates/bash/${template}.bash" >> "${cmd_path}.bash"
 echo "[:)] '${cmd_path}.bash' (cmd script) created"
