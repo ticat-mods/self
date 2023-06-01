@@ -27,6 +27,9 @@ function vim_path_from_api_get()
 	local lines=`echo "${path}" | wc -l`
 	if [ "${lines}" != 1 ]; then
 		echo "[:(] get cmd path failed, too many result lines:" >&2
+		echo '***' >&2
+		echo "${lines}" >&2
+		echo '***' >&2
 		echo "${path}" >&2
 		exit 1
 	fi

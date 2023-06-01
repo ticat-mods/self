@@ -63,8 +63,8 @@ pack-subflow|pack-sub|quiet-subflow|quiet-sub = true
 ##--------------------------------------------------------------
 
 [args|arg]
-arg1 = val1
-	arg2 = ''
+arg1 = val1 (enum: val1|val11)
+	arg2 = '' (val2|val22)
 arg3 = ""
 arg4 = "val4"
 
@@ -91,7 +91,7 @@ cmd1 = to explain why
 
 [flow/]
 noop : dummy
-dummy
+dummy %delay=1s %env=apply
 noop
 
 ## The value of key4 is a list like `str1,str2,str3` (or just `cmd1`)
